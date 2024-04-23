@@ -47,7 +47,7 @@ class DashboardFragment : Fragment() {
         newsApiService = retrofit.create(NewsApiService::class.java)
 
         // Load news articles
-        loadNews("us", "business","yourapikey")  // Replace with your actual API key
+        loadNews("us", "business","a7ba9917efb44c2fa56b207540168f9b")  // Replace with your actual API key
 
         setupRecyclerView()
         setupSearchBarClickListener()

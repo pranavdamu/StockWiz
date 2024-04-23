@@ -8,4 +8,6 @@
     <string name="settings">settings</string>
     <string name="search_stocks">Search Stocks</string>
     <string name="stock_list">Stock List</string>
+    <string name="search_hint">Enter the stock you want</string>
+    <string name="stock_symbol">Stock Symbol</string>
 </resources>

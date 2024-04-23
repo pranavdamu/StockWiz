@@ -32,6 +32,6 @@
             android:exported="true"
             android:label="search_activity"> <!-- Optionally, you can set a specific title for the search activity -->
         </activity>
-
+        <activity android:name=".ui.search.StockInfoActivity"/>
     </application>
 </manifest>
