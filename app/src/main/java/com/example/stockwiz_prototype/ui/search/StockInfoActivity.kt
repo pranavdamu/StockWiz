@@ -42,7 +42,7 @@ class StockInfoActivity : AppCompatActivity() {
 
     private fun fetchStockInfo(stockSymbol: String?) {
         stockSymbol?.let { symbol ->
-            val apiKey = "afcf6a93be41f49023e8af5e52a5543a8334c134"  // Replace with your actual API key
+            val apiKey = "yourapikey"  // Replace with your actual API key
             RetrofitClient.instance.getStockInfo(symbol, apiKey).enqueue(object :
                 Callback<List<StockInfo>> {
                 override fun onResponse(call: Call<List<StockInfo>>, response: Response<List<StockInfo>>) {
@@ -72,7 +72,7 @@ class StockInfoActivity : AppCompatActivity() {
         }
     }
     private fun fetchHistoricalData(symbol: String?) {
-        val apiKey = "afcf6a93be41f49023e8af5e52a5543a8334c134"
+        val apiKey = "yourapikey"
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)  // Fix date format to be a proper pattern
         val endDate = dateFormat.format(Date())  // Today's date
         val startCalendar = Calendar.getInstance().apply {

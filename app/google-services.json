@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "453398789124",
+    "project_id": "stockwiz-prototype-4d49c",
+    "storage_bucket": "stockwiz-prototype-4d49c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453398789124:android:5d743bb117b9e5eaab0951",
+        "android_client_info": {
+          "package_name": "com.example.stockwiz_prototype"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw4Rr0fnAxNji-Wpr7WNZ66ozS5AnPd9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

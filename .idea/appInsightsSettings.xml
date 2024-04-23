@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.stockwiz_prototype" />
+                  <option name="mobileSdkAppId" value="1:453398789124:android:5d743bb117b9e5eaab0951" />
+                  <option name="projectId" value="stockwiz-prototype-4d49c" />
+                  <option name="projectNumber" value="453398789124" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
