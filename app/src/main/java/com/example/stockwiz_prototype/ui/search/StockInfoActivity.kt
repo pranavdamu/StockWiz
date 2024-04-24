@@ -5,15 +5,16 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
+import com.example.stockwiz_prototype.R
 import com.example.stockwiz_prototype.data.StockInfo
 import com.example.stockwiz_prototype.databinding.ActivityViewStockBinding
 import com.example.stockwiz_prototype.network.RetrofitClient
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,20 +26,35 @@ import java.util.Locale
 
 class StockInfoActivity : AppCompatActivity() {
     private lateinit var binding: ActivityViewStockBinding
+    private lateinit var stockSymbol: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityViewStockBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Retrieve the stock symbol passed as an extra
-        val stockSymbol = intent.getStringExtra("stock_symbol")
-        binding.companySymbolTv.text = stockSymbol  // Assuming this TextView is for displaying the stock symbol
+        // Correctly retrieve the stock symbol from the intent
+        stockSymbol = intent.getStringExtra("stock_symbol") ?: return
+
+        // Set the stock symbol in the TextView
+        binding.companySymbolTv.text = stockSymbol
 
         // Fetch and display stock info based on the symbol
         fetchStockInfo(stockSymbol)
         fetchHistoricalData(stockSymbol)
 
+        // Setup the bookmark button click listener
+        val bookmarkButton: FloatingActionButton = findViewById(R.id.bookmark_button)
+        bookmarkButton.setOnClickListener {
+            val userUID = FirebaseAuth.getInstance().currentUser?.uid
+            if (userUID != null) {
+                addToFavorites(userUID, stockSymbol)
+            } else {
+                Toast.makeText(this, "You must be logged in to add favorites.", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
+
 
     private fun fetchStockInfo(stockSymbol: String?) {
         stockSymbol?.let { symbol ->
@@ -120,6 +136,25 @@ class StockInfoActivity : AppCompatActivity() {
         binding.graph.invalidate()  // Refresh the chart
     }
 
-
-
+    private fun addToFavorites(userUID: String, stockSymbol: String) {
+        val favorite = hashMapOf("symbol" to stockSymbol)
+        FirebaseFirestore.getInstance()
+            .collection("users")
+            .document(userUID)
+            .collection("favorites")
+            .document(stockSymbol)
+            .set(favorite)
+            .addOnSuccessListener {
+                Toast.makeText(this, "$stockSymbol added to favorites.", Toast.LENGTH_SHORT).show()
+                // You can update the UI to reflect the stock being added to favorites
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Error adding to favorites: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
+            }
+    }
 }
+
+
+
+
+

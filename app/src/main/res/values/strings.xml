@@ -10,4 +10,6 @@
     <string name="stock_list">Stock List</string>
     <string name="search_hint">Enter the stock you want</string>
     <string name="stock_symbol">Stock Symbol</string>
+    <string name="user_id">User ID:</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

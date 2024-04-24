@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -75,31 +76,13 @@ dependencies {
     debugImplementation ("com.squareup.leakcanary:leakcanary-android:2.7") //will alert if memory leak
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
-    //room dependencies
-    val room = "2.6.1"
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
 
-    implementation("androidx.room:room-runtime:$room")
-    annotationProcessor("androidx.room:room-compiler:$room")
+    // Declare the dependency for the Cloud Firestore library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-firestore")
 
-    // optional - Kotlin Extensions and Coroutines support for Room
-    implementation("androidx.room:room-ktx:$room")
-
-    // optional - RxJava2 support for Room
-    implementation("androidx.room:room-rxjava2:$room")
-
-    // optional - RxJava3 support for Room
-    implementation("androidx.room:room-rxjava3:$room")
-
-    // optional - Guava support for Room, including Optional and ListenableFuture
-    implementation("androidx.room:room-guava:$room")
-
-    // optional - Test helpers
-    testImplementation("androidx.room:room-testing:$room")
-
-    // optional - Paging 3 Integration
-    implementation("androidx.room:room-paging:$room")
-
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 
 }
 
