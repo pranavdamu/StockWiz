@@ -1,3 +1,6 @@
+import com.android.build.api.dsl.Packaging
+import org.gradle.internal.impldep.org.junit.experimental.categories.Categories.CategoryFilter.exclude
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -43,6 +46,7 @@ android {
 
 dependencies {
 
+
     implementation ("com.opencsv:opencsv:5.6")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -82,6 +86,11 @@ dependencies {
     // Declare the dependency for the Cloud Firestore library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-firestore")
+
+    //Google Cloud Natural Language
+
+
+
 
 
 }

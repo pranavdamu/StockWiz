@@ -14,4 +14,12 @@ object RetrofitClient {
             .build()
             .create(TingoApiService::class.java)
     }
+    val retrofit = Retrofit.Builder()
+        .baseUrl("https://newsapi.org/") // Use the base URL for News API
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    val instance2: NewsApiService by lazy {
+        retrofit.create(NewsApiService::class.java)
+    }
 }

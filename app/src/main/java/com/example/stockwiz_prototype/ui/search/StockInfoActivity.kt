@@ -1,14 +1,17 @@
 package com.example.stockwiz_prototype.ui.search
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.stockwiz_prototype.R
 import com.example.stockwiz_prototype.data.StockInfo
 import com.example.stockwiz_prototype.databinding.ActivityViewStockBinding
 import com.example.stockwiz_prototype.network.RetrofitClient
+import com.example.stockwiz_prototype.ui.newsinfo.StockNewsInfoActivity
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
@@ -53,12 +56,26 @@ class StockInfoActivity : AppCompatActivity() {
                 Toast.makeText(this, "You must be logged in to add favorites.", Toast.LENGTH_SHORT).show()
             }
         }
+        val newsAnalysisButton: Button = findViewById(R.id.newsAnalysisButton)
+        newsAnalysisButton.setOnClickListener {
+            // Start StockNewsInfoActivity and pass the stock symbol
+            val intent = Intent(this, StockNewsInfoActivity::class.java).apply {
+                putExtra("stock_symbol", stockSymbol)
+            }
+            startActivity(intent)
+        }
+        binding.newsAnalysisButton.setOnClickListener {
+            val intent = Intent(this, StockNewsInfoActivity::class.java).apply {
+                putExtra("stock_symbol", stockSymbol)
+            }
+            startActivity(intent)
+        }
     }
 
 
     private fun fetchStockInfo(stockSymbol: String?) {
         stockSymbol?.let { symbol ->
-            val apiKey = "yourapikey"  // Replace with your actual API key
+            val apiKey = "afcf6a93be41f49023e8af5e52a5543a8334c134"  // Replace with your actual API key
             RetrofitClient.instance.getStockInfo(symbol, apiKey).enqueue(object :
                 Callback<List<StockInfo>> {
                 override fun onResponse(call: Call<List<StockInfo>>, response: Response<List<StockInfo>>) {
@@ -88,7 +105,7 @@ class StockInfoActivity : AppCompatActivity() {
         }
     }
     private fun fetchHistoricalData(symbol: String?) {
-        val apiKey = "yourapikey"
+        val apiKey = "afcf6a93be41f49023e8af5e52a5543a8334c134"
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)  // Fix date format to be a proper pattern
         val endDate = dateFormat.format(Date())  // Today's date
         val startCalendar = Calendar.getInstance().apply {
