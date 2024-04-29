@@ -50,5 +50,8 @@
         </activity>
         <activity android:name=".ui.search.StockInfoActivity"/>
         <activity android:name=".ui.newsinfo.StockNewsInfoActivity"/>
+        <activity android:name=".ui.loginandsignup.ForgetPasswordActivity">
+            <!-- If you have specific intent filters, they go here -->
+        </activity>
     </application>
 </manifest>

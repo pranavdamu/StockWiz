@@ -3,6 +3,7 @@ package com.example.stockwiz_prototype.data
 import com.google.gson.annotations.SerializedName
 
 data class StockInfo(
+    @SerializedName("name") val name: String,
     @SerializedName("adjClose") val adjClose: Double,
     @SerializedName("adjHigh") val adjHigh: Double,
     @SerializedName("adjLow") val adjLow: Double,

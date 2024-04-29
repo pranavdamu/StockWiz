@@ -85,7 +85,7 @@ class StockInfoActivity : AppCompatActivity() {
                         stockInfo?.let {
                             binding.apply {
                                 // Assuming company name needs to be fetched from a different API or hardcoded for now
-                                companyNameTv.text = "AAPL"  // Example placeholder TODO
+                                companyNameTv.text = "${it.name}"  // Example placeholder TODO
                                 stockPriceTv.text = "${it.adjClose}"
                                 stockHighTv.text = "${it.high}"
                                 stockLowTv.text = "${it.low}"
