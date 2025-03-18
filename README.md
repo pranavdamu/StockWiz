@@ -1,29 +1,6 @@
 # Stocks Android App
 An android app for virtual stock trading. 
 
-## Demo
-[![App Demo gif](./other/demo.gif)]()
-
-## Screen shots
-### Home page
-
-<p float="left">
-  <img src="./other/home-page1.png" width="20%" />
-  <img src="./other/home-page2.png" width="20%" />
-  <img src="./other/home-page3.png" width="20%" />
-  <img src="./other/home-page4.png" width="20%" />
-</p>
-
-
-### Stock Details page
-<p float="left">
-  <img src="./other/details-page1.png" width="20%" />
-  <img src="./other/details-page2.png" width="20%" />
-  <img src="./other/details-page3.png" width="20%" />
-  <img src="./other/details-page4.png" width="20%" />
-</p>
-
-
 ## Summary
 This Android app provides a platform for stocks trading, including, features such as searching company stock details, buying/selling stocks, keeping track of stock porfolio/favorites, viewing stock SMA charts and news, allowing sharing news on twitter for a given stock. Custom Nodejs backend deployed using GCP is used for all API calls. The backend uses [Tingo API](https://api.tiingo.com/) for all stock related data, and [News API](https://newsapi.org/) for displaying stock related news. [Highcharts](https://www.highcharts.com/) is used for displaying the SMA chart data for a given ticker.
 
@@ -68,28 +45,6 @@ This Android app provides a platform for stocks trading, including, features suc
   
 
 
-## License
-MIT License
-
-Copyright (c) 2020 Shamsuddin Rehmani
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
     
 
 
